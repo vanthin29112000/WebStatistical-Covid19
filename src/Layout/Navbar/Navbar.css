@@ -1,0 +1,236 @@
+.navbar__container {
+   height: 100%;
+   padding: 16px;
+   align-items: center;
+}
+
+.navbar__logo {
+   display: flex;
+}
+
+.navbar__logo img {
+   width: 56px;
+   height: auto;
+}
+
+.navbar__title {
+   font-size: 1.8em;
+   line-height: 64px;
+   margin-left: 4px;
+   font-family: "Bebas Neue", cursive;
+}
+
+.navbar__search {
+   width: 100%;
+   height: 48px;
+   border: 1px solid #dce0e3;
+   padding: 0px 16px;
+   display: grid;
+   grid-template-columns: 8% 84% 8%;
+   align-items: center;
+   border-radius: 32px;
+}
+
+.navbar__search input:active > .navbar__search {
+   outline: 1px solid var(--primary-color);
+   border-radius: 32px;
+}
+
+.navbar__search i {
+   font-size: 1.2em;
+   color: #dce0e3;
+   justify-self: center;
+}
+
+.navbar__search .close:hover {
+   color: #888b8d;
+}
+
+.navbar__search input {
+   font-size: 1em;
+   height: 100%;
+   border: none;
+   outline: none;
+   align-self: center;
+   padding: 0px 8px;
+   border-left: 1px solid #dce0e3;
+}
+
+.navbar__search input::placeholder {
+   font-size: 1em;
+   color: #dce0e3;
+   align-self: flex-end;
+}
+
+.list-page {
+   height: 24px;
+   display: flex;
+   justify-content: end;
+}
+
+.list-page p {
+   font-weight: bolder;
+   padding-bottom: 2px;
+   margin-bottom: 2px;
+   margin: 0px 16px;
+   font-size: 1.1em;
+}
+
+.list-page p:hover {
+   color: var(--primary-color);
+   border-bottom: 2px solid var(--primary-color);
+   transition: color 200ms ease 0s, border-color 200ms ease 0s;
+}
+
+.list-page__bars i,
+.navbar-search__icon i {
+   float: right;
+   font-size: 1.2em;
+   margin: 0px 4px;
+   cursor: pointer;
+}
+
+.nav__overlay {
+   width: 100vw;
+   height: 100vh;
+   position: fixed;
+   top: 0;
+   left: 0;
+   display: none;
+   background-color: rgba(0, 0, 0, 0.3);
+   animation: fadeIn linear 0.2s;
+}
+
+@keyframes fadeIn {
+   from {
+      opacity: 0;
+   }
+   to {
+      opacity: 1;
+   }
+}
+
+/* nav-moblie */
+
+.nav-mobile {
+   display: none;
+   position: fixed;
+   top: 0px;
+   right: 0;
+   bottom: 0;
+   width: 320px;
+   max-width: 100%;
+   transform: translateX(100%);
+   transition: transform linear 0.2s, opacity linear 0.2s;
+   opacity: 0;
+   background-color: #ffffff;
+   z-index: 2;
+}
+
+.list-page__mobile {
+   margin-top: 24px;
+   padding: 32px;
+   color: #757575;
+   font-size: 1.2em;
+}
+
+.list-page__mobile p {
+   --width-item: 64px;
+   padding: 0px 16px;
+   width: 100%;
+   font-weight: 500;
+   height: var(--width-item);
+   line-height: var(--width-item);
+   cursor: pointer;
+}
+
+.list-page__mobile p i {
+   width: 32px;
+   height: auto;
+}
+
+.list-page__mobile p:hover {
+   border-radius: 4px;
+   background-color: var(--primary-color);
+   color: #ffffff;
+
+   transition: background-color ease 0.3s, color ease 0.1s;
+}
+
+.close-nav {
+   position: absolute;
+   top: 8px;
+   right: 8px;
+   font-size: 32px;
+   color: #adadad;
+   cursor: pointer;
+}
+
+.close-nav:hover {
+   color: #757575;
+}
+
+#nav-mobile-input {
+   display: none;
+}
+
+#nav-mobile-input:checked ~ .nav-mobile {
+   transform: translateX(0%);
+   opacity: 1;
+}
+
+.navbar__search-mobile {
+   padding: 16px;
+   background-color: rgba(207, 204, 204, 0.75);
+   position: fixed;
+   border-radius: 16px;
+   top: 108px;
+   display: none;
+   transform: translateY(-500%);
+   opacity: 0;
+   transition: transform linear 0.3s, opacity linear 0.3s;
+   z-index: 1;
+}
+
+.nav__mobile-input {
+   background-color: white;
+}
+
+.nav__mobile-input input {
+   padding: 0px 8px;
+   border-left: 1px solid #dce0e3;
+}
+
+#nav-search__input {
+   display: none;
+}
+
+#nav-search__input:checked ~ .navbar__search-mobile {
+   transform: translateY(0%);
+   opacity: 1;
+}
+
+@media screen and (max-width: 1023px) {
+   .nav-mobile {
+      display: block;
+   }
+
+   .navbar__search-mobile {
+      display: block;
+   }
+
+   #nav-mobile-input:checked ~ .nav__overlay {
+      display: block;
+   }
+}
+
+/* Mobile */
+@media screen and (max-width: 739px) {
+   .navbar__search-mobile {
+      left: 0;
+   }
+}
+
+/* Tablet */
+@media screen and (min-width: 740) and (max-width: 1023px) {
+}
