@@ -16,6 +16,7 @@ const generateOptions = (data) => {
    return {
       chart: {
          type: "spline",
+         height: "408",
       },
 
       legend: {

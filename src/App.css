@@ -13,3 +13,8 @@ body {
 :root {
    --primary-color: rgb(18, 158, 223);
 }
+
+a {
+   text-decoration: none;
+   color: black;
+}

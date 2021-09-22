@@ -1,9 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { Link, useHistory } from "react-router-dom";
+import getCountries from "../../Service/CountriesAPI";
 import "./Navbar.css";
 
 const NavBar = () => {
    const [isShowClearInput, setIsShowClearInput] = useState(false);
    const [searchWord, setSearchWord] = useState("");
+   const [countries, setCountries] = useState([]);
+   const history = useHistory();
+
+   useEffect(() => {
+      if (countries.length === 0) {
+         getListCountries();
+      }
+   }, []);
+
+   const getListCountries = async () => {
+      const response = await getCountries();
+      const data = response.data.sort((a, b) =>
+         a["Country"].localeCompare(b["Country"])
+      );
+      setCountries(data);
+   };
 
    const onChangeSearchWord = (e) => {
       const keySearch = e.target.value;
@@ -17,6 +35,11 @@ const NavBar = () => {
       }
    };
 
+   const onHandleClickSearch = () => {
+      const country = countries.find((item) => item.Country === searchWord);
+      history.push(`/countryDetail/${country["ISO2"]}`);
+   };
+
    const onClearKeySearch = () => {
       setSearchWord("");
       setIsShowClearInput(false);
@@ -27,28 +50,35 @@ const NavBar = () => {
          <div className="row sm-gutter navbar__container">
             {/* Logo */}
             <div className="col l-3 m-8 c-8">
-               <div className="navbar__logo ">
+               <Link to="/" className="navbar__logo">
                   <img src="\images\tải xuống.png" alt="logo.png"></img>
                   <p className="navbar__title">Covid News</p>
-               </div>
+               </Link>
             </div>
 
             {/* Search - PC*/}
             <div className="col l-4 m-0 c-0">
-               <div className="navbar__search ">
+               <form className="navbar__search " onSubmit={onHandleClickSearch}>
                   <i className="fas fa-search"></i>
                   <input
                      placeholder="Tìm kiếm theo thành phố, quốc gia,..."
                      onChange={onChangeSearchWord}
                      value={searchWord}
+                     list="listCoutries"
                   ></input>
+                  <datalist id="listCoutries">
+                     {countries.map((item, index) => (
+                        <option value={item.Country} key={index}></option>
+                     ))}
+                  </datalist>
+
                   {isShowClearInput && (
                      <i
                         className="fas fa-times close"
                         onClick={onClearKeySearch}
                      ></i>
                   )}
-               </div>
+               </form>
             </div>
 
             {/* List page - PC*/}
@@ -85,9 +115,12 @@ const NavBar = () => {
                </label>
 
                <div className="list-page__mobile ">
-                  <p>
-                     <i className="fas fa-home"></i>Trang chủ
-                  </p>
+                  <Link to="/">
+                     <p>
+                        <i className="fas fa-home"></i>Trang chủ
+                     </p>
+                  </Link>
+
                   <p>
                      <i className="fas fa-bookmark"></i>Quy Tắc 5k
                   </p>
@@ -102,12 +135,16 @@ const NavBar = () => {
 
             <div className="grid wide navbar__search-mobile">
                <div className="row">
-                  <div className="navbar__search nav__mobile-input col m-o-12 c-0-12">
+                  <form
+                     className="navbar__search nav__mobile-input col m-o-12 c-0-12"
+                     onSubmit={onHandleClickSearch}
+                  >
                      <i className="fas fa-search"></i>
                      <input
                         placeholder="Tìm kiếm theo thành phố, quốc gia,..."
                         onChange={onChangeSearchWord}
                         value={searchWord}
+                        list="listCoutries"
                      ></input>
                      {isShowClearInput && (
                         <i
@@ -115,7 +152,7 @@ const NavBar = () => {
                            onClick={onClearKeySearch}
                         ></i>
                      )}
-                  </div>
+                  </form>
                </div>
             </div>
          </div>

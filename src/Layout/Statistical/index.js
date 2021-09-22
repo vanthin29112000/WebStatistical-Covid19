@@ -2,11 +2,9 @@ import React from "react";
 import "./Statistical.css";
 const Statistical = ({ data }) => {
    if (data.length === 0) return null;
-
    const dataToDay = data[data.length - 2];
    const dataTomorrow = data[data.length - 3];
    const formatter = new Intl.NumberFormat();
-   console.log("thay doi ", dataToDay.Confirmed - dataTomorrow.Confirmed);
    return (
       <div className="statistical">
          <div className="statistical_item case">
@@ -15,7 +13,7 @@ const Statistical = ({ data }) => {
                <p className="amount">{formatter.format(dataToDay.Confirmed)}</p>
                {dataToDay.Confirmed - dataTomorrow.Confirmed !== 0 ? (
                   <p className="change decrease danger">
-                     <i class="fas fa-arrow-right "></i>
+                     <i className="fas fa-arrow-right "></i>
                      {formatter.format(
                         dataToDay.Confirmed - dataTomorrow.Confirmed
                      )}
@@ -27,7 +25,7 @@ const Statistical = ({ data }) => {
                   </p>
                ) : (
                   <p className="change increase default">
-                     <i class="fas fa-arrow-right"></i>0%
+                     <i className="fas fa-arrow-right"></i>0%
                   </p>
                )}
             </div>
@@ -39,7 +37,7 @@ const Statistical = ({ data }) => {
                <p className="amount">{formatter.format(dataToDay.Deaths)}</p>
                {dataToDay.Deaths - dataTomorrow.Deaths !== 0 ? (
                   <p className="change decrease danger">
-                     <i class="fas fa-arrow-right "></i>
+                     <i className="fas fa-arrow-right "></i>
                      {formatter.format(dataToDay.Deaths - dataTomorrow.Deaths)}(
                      {formatter.format(
                         (dataToDay.Deaths - dataTomorrow.Deaths) / 100
@@ -48,7 +46,7 @@ const Statistical = ({ data }) => {
                   </p>
                ) : (
                   <p className="change increase default">
-                     <i class="fas fa-arrow-right"></i>0%
+                     <i className="fas fa-arrow-right"></i>0%
                   </p>
                )}
             </div>
@@ -60,7 +58,7 @@ const Statistical = ({ data }) => {
                <p className="amount">{formatter.format(dataToDay.Active)}</p>
                {dataToDay.Active - dataTomorrow.Active !== 0 ? (
                   <p className="change decrease default">
-                     <i class="fas fa-arrow-right "></i>
+                     <i className="fas fa-arrow-right "></i>
                      {formatter.format(dataToDay.Deaths - dataTomorrow.Deaths)}(
                      {formatter.format(
                         (dataToDay.Deaths - dataTomorrow.Deaths) / 100
@@ -69,7 +67,7 @@ const Statistical = ({ data }) => {
                   </p>
                ) : (
                   <p className="change increase default">
-                     <i class="fas fa-arrow-right"></i>0%
+                     <i className="fas fa-arrow-right"></i>0%
                   </p>
                )}
             </div>
