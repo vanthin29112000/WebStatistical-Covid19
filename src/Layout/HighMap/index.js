@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import highchartsMap from "highcharts/modules/map";
@@ -196,5 +197,15 @@ HighMap.defaultProps = {
       [1.5, "#008EBC"],
       [2, "#007092"],
    ],
+};
+
+HighMap.propTypes = {
+   countryId: PropTypes.string,
+   height: PropTypes.string,
+   data: PropTypes.array,
+   objSelection: PropTypes.string,
+   nameMap: PropTypes.string,
+   nameItem: PropTypes.string,
+   colorAxis: PropTypes.array,
 };
 export default HighMap;

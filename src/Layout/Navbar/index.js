@@ -7,13 +7,15 @@ const NavBar = () => {
    const [isShowClearInput, setIsShowClearInput] = useState(false);
    const [searchWord, setSearchWord] = useState("");
    const [countries, setCountries] = useState([]);
+   const [pathName, setPathName] = useState("");
    const history = useHistory();
 
    useEffect(() => {
       if (countries.length === 0) {
          getListCountries();
       }
-   }, []);
+      setPathName(history.location.pathname);
+   }, [history]);
 
    const getListCountries = async () => {
       const response = await getCountries();
@@ -84,8 +86,16 @@ const NavBar = () => {
             {/* List page - PC*/}
             <div className="col l-5 c-0 m-0">
                <div className="list-page ">
-                  <p>Trang chủ</p>
-                  <p>Quy Tắc 5k</p>
+                  <Link to="/">
+                     {pathName === "/" ? (
+                        <p className="active">Trang chủ</p>
+                     ) : (
+                        <p>Trang chủ</p>
+                     )}
+                  </Link>
+                  <Link to="/thong-diep-5k">
+                     <p>Quy Tắc 5k</p>
+                  </Link>
                   <p>Giới Thiệu</p>
                </div>
             </div>
@@ -116,14 +126,21 @@ const NavBar = () => {
 
                <div className="list-page__mobile ">
                   <Link to="/">
+                     {pathName === "/" ? (
+                        <p className="active">
+                           <i className="fas fa-home"></i>Trang chủ
+                        </p>
+                     ) : (
+                        <p>
+                           <i className="fas fa-home"></i>Trang chủ
+                        </p>
+                     )}
+                  </Link>
+                  <Link to="/thong-diep-5k">
                      <p>
-                        <i className="fas fa-home"></i>Trang chủ
+                        <i className="fas fa-bookmark"></i>Quy Tắc 5k
                      </p>
                   </Link>
-
-                  <p>
-                     <i className="fas fa-bookmark"></i>Quy Tắc 5k
-                  </p>
                   <p>
                      <i className="fas fa-address-card"></i>Giới Thiệu
                   </p>

@@ -16,8 +16,8 @@
 
 .highchart-container {
    width: 100%;
-   height: auto;
-   padding: 108px 0px;
+   min-height: 100%;
+   padding-top: 108px;
    background-color: #f2f0f5;
 }
 

@@ -74,12 +74,18 @@
    margin-bottom: 2px;
    margin: 0px 16px;
    font-size: 1.1em;
+   cursor: pointer;
 }
 
 .list-page p:hover {
    color: var(--primary-color);
    border-bottom: 2px solid var(--primary-color);
    transition: color 200ms ease 0s, border-color 200ms ease 0s;
+}
+
+.list-page .active {
+   color: var(--primary-color);
+   border-bottom: 2px solid var(--primary-color);
 }
 
 .list-page__bars i,
@@ -222,6 +228,10 @@
    #nav-mobile-input:checked ~ .nav__overlay {
       display: block;
    }
+
+   .list-page__mobile .active {
+      color: var(--primary-color);
+   }
 }
 
 /* Mobile */
@@ -232,5 +242,5 @@
 }
 
 /* Tablet */
-@media screen and (min-width: 740) and (max-width: 1023px) {
+@media screen and (min-width: 740px) and (max-width: 1023px) {
 }

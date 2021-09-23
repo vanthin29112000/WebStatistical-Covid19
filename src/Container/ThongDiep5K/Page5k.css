@@ -1,0 +1,205 @@
+.td-5k {
+   width: 100%;
+   height: fit-content;
+   background-color: #19bbe2;
+   padding: 16px 0px 25px 0px;
+}
+
+.td-5k__title {
+   text-align: center;
+   color: white;
+}
+
+.td-5k__title .title {
+   font-size: 1.5em;
+   font-weight: bolder;
+}
+
+.td-5k__title .source {
+   font-size: 1.2em;
+   font-weight: 500;
+}
+
+.td-5k__container {
+   width: 90%;
+   height: fit-content;
+   position: relative;
+   display: flex;
+   flex-wrap: wrap;
+   margin: 0 auto;
+   background-color: white;
+   border-radius: 16px;
+}
+
+.td {
+   width: 50%;
+   height: 150px;
+   padding: 16px;
+}
+
+.khautrang {
+   background-color: #fdfbd5;
+   border-radius: 16px 0px 0px 0px;
+}
+
+.khukhuan {
+   background-color: #eaf0d6;
+   border-radius: 0px 16px 0px 0px;
+}
+
+.khoangcach {
+   padding-right: 150px;
+   background-color: #fbd5c2;
+}
+
+.khongtutap {
+   padding-left: 150px;
+   background-color: #cae7f9;
+}
+
+.khaibaoyte {
+   background-color: #e6d5e8;
+   flex-grow: 1;
+   border-radius: 0px 0px 16px 16px;
+}
+
+.td__title {
+   display: flex;
+   font-size: 1.2em;
+   font-weight: bold;
+   color: #005bb1;
+   margin-bottom: 8px;
+}
+
+.td__info-left,
+.td__info-right,
+.td__info {
+   font-size: 1em;
+   font-weight: 500;
+}
+
+.td__info p a {
+   color: #eb1b2a;
+   font-size: 1.2em;
+   font-weight: 600;
+}
+
+.td__info {
+   display: grid;
+   grid-template-columns: 19% 38% 39%;
+   grid-gap: 2%;
+}
+
+.td__info p {
+   padding: 0px 16px;
+}
+
+.td__info-left p .highline,
+.td__info-right p .highline {
+   color: #005bb1;
+}
+
+.td-left {
+   text-align: left;
+}
+
+.td-right {
+   text-align: right;
+}
+
+.td__title-right {
+   justify-content: end;
+}
+
+.td__title p {
+   color: #ec0d11;
+}
+
+.circle-td-5k {
+   --size-cirle: 230px;
+   width: var(--size-cirle);
+   height: var(--size-cirle);
+   position: absolute;
+   top: calc((100% - var(--size-cirle)) / 2);
+   left: calc((100% - var(--size-cirle)) / 2);
+   background-color: #edf1f2;
+   border-radius: 100%;
+   font-weight: bolder;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   box-shadow: 0px 0px 16px 0px rgba(128, 128, 128, 0.5);
+}
+
+.circle-td-5k__title {
+   width: fit-content;
+   height: fit-content;
+   font-size: 1.5em;
+   color: #005bb1;
+   text-align: center;
+}
+
+.circle-td-5k__info {
+   font-size: 4em;
+   color: #ec0d11;
+}
+
+@media screen and (max-width: 739px) {
+   .td-5k__container .td {
+      height: 200px;
+   }
+   .circle-td-5k {
+      --size-cirle: 32%;
+   }
+
+   .td__info {
+      display: block;
+   }
+
+   .khukhuan {
+      text-align: left;
+      padding-left: 24px;
+   }
+
+   .khoangcach {
+      max-height: 150px;
+      padding-right: 20%;
+   }
+
+   .khongtutap {
+      max-height: 150px;
+      padding-left: 20%;
+   }
+   .khaibaoyte {
+      min-height: 220px;
+   }
+}
+
+/* Tablet */
+@media screen and (min-width: 740px) and (max-width: 1023px) {
+   .td-5k__container .td {
+      height: 200px;
+   }
+
+   .td__info {
+      display: block;
+   }
+
+   .khukhuan {
+      text-align: left;
+      padding-left: 24px;
+   }
+
+   .khoangcach {
+      max-height: 150px;
+      padding-right: 130px;
+   }
+
+   .khongtutap {
+      max-height: 150px;
+      padding-left: 130px;
+   }
+   .khaibaoyte {
+      min-height: 220px;
+   }
+}
