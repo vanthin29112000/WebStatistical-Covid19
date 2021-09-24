@@ -5,18 +5,20 @@ import HighMap from "../../Layout/HighMap";
 import getCountries from "../../Service/CountriesAPI";
 import getReport from "../../Service/Report";
 import Loading from "../../Layout/Loading";
-
+import { useParams } from "react-router-dom";
 const CountryDetail = (props) => {
    const [countries, setCountries] = useState([]);
    const [reportAllCountries, setReportAllCountries] = useState([]);
-   const [countryId, setCountryId] = useState(props.match.params.countryID);
+   const [countryId, setCountryId] = useState("");
    const [isLoading, setIsLoading] = useState(true);
+   const { countryID } = useParams();
 
    useEffect(() => {
       window.scrollTo(0, 0);
+      setCountryId(countryID);
       onGetCountry();
       onGetReportCountry(countryId);
-   }, [countryId, isLoading]);
+   }, [countryId, isLoading, countryID]);
 
    const onGetCountry = async () => {
       const response = await getCountries();

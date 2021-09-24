@@ -108,10 +108,12 @@ const HomePage = () => {
                         <label htmlFor="choseHighMap" className="title">
                            Bản đồ những ca :
                         </label>
-                        <select id="choseHighMap" onChange={onChangeMap}>
-                           <option value="case" selected>
-                              Nhiễm bệnh
-                           </option>
+                        <select
+                           id="choseHighMap"
+                           onChange={onChangeMap}
+                           value="case"
+                        >
+                           <option value="case">Nhiễm bệnh</option>
                            <option value="death">Tử vong</option>
 
                            <option value="recovered">Khỏi bệnh</option>
