@@ -1,0 +1,28 @@
+.footer {
+   border-top: 1px solid #777777;
+   background-color: white;
+   padding: 8px 0px;
+   color: #777777;
+}
+
+.footer__container {
+   display: flex;
+}
+
+.footer__item {
+   margin: 0 16px;
+   display: flex;
+   align-items: center;
+}
+
+.footer__item img {
+   --size-logo-footer: 32px;
+   margin: 0 8px;
+   width: var(--size-logo-footer);
+   height: var(--size-logo-footer);
+}
+
+.footer__title {
+   color: #777777;
+   font-weight: 500;
+}

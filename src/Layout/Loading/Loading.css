@@ -1,0 +1,14 @@
+.loading {
+   width: 100vw;
+   height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.loading img {
+   --size-loading: 216px;
+   width: var(--size-loading);
+   height: var(--size-loading);
+   object-fit: cover;
+}

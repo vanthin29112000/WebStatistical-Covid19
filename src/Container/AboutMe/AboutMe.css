@@ -1,0 +1,35 @@
+.about {
+   width: 100%;
+   height: auto;
+}
+
+.about__bg {
+   width: 100%;
+   height: 300px;
+   position: relative;
+}
+
+.about__bg img {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+}
+
+.about__title {
+   position: absolute;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   z-index: 2;
+   background-color: rgba(0, 0, 0, 0.3);
+}
+
+.about__title p {
+   font-size: 1.5em;
+   color: white;
+   font-weight: bolder;
+}

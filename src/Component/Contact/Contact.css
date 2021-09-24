@@ -1,0 +1,127 @@
+.about__container {
+   width: 80%;
+   height: 350px;
+   margin: 0 auto;
+   position: relative;
+   z-index: 3;
+}
+
+.about__inf {
+   --width-about: 100%;
+   width: var(--width-about);
+   height: 100%;
+   position: absolute;
+   top: -100px;
+   left: 0;
+   background-color: white;
+   box-shadow: 0px 0px 16px 0px rgba(128, 128, 128, 0.2);
+}
+
+.about__inf-avatar {
+   width: 100%;
+   height: auto;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   position: relative;
+}
+
+.about__inf .avatar {
+   position: absolute;
+   transform: scaleY(-100px);
+   /* top: calc((--size-avatar * -1) / 2); */
+   --size-avatar: 200px;
+   width: var(--size-avatar);
+   height: var(--size-avatar);
+   border-radius: 100%;
+   background-color: white;
+   box-shadow: 0px 0px 16px 0px rgba(128, 128, 128, 0.5);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+}
+
+.about__inf .avatar img {
+   width: 90%;
+   height: 90%;
+   object-fit: cover;
+   border-radius: 100%;
+}
+
+.about__inf .info {
+   padding-top: 120px;
+}
+
+.about__inf .info .name {
+   text-align: center;
+   font-size: 2em;
+   font-weight: bold;
+}
+
+.contact {
+   width: 100%;
+   height: auto;
+   padding: 0px 32px;
+}
+
+.contact__title {
+   width: 100%;
+   height: auto;
+   margin: 16px 0px;
+   padding-top: 8px;
+   color: rgb(143, 140, 140);
+   text-align: center;
+   font-size: 1.2em;
+   font-weight: bold;
+   border-top: 1px solid rgba(128, 128, 128, 0.2);
+}
+
+.list-contact {
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+}
+
+.contact-link {
+   display: flex;
+   align-items: center;
+   font-size: 1.2em;
+   color: black;
+   margin: 8px 0px;
+   justify-self: center;
+}
+
+.contact-link i {
+   font-size: 1.5em;
+   margin: 0px 4px;
+}
+
+.info-contact:hover {
+   font-weight: 500;
+   border-bottom: 1px solid black;
+}
+
+@media screen and (max-width: 739px) {
+   .info-contact {
+      display: none;
+   }
+
+   .list-contact {
+      justify-content: center;
+   }
+
+   .contact-link {
+      margin: 0 16px;
+   }
+}
+
+/* Tablet */
+@media screen and (min-width: 740px) and (max-width: 1023px) {
+   .list-contact {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+   }
+   .contact__gmail {
+      grid-column: 1 / span 2;
+   }
+}

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import highchartsMap from "highcharts/modules/map";
-
+import "./HighMap.css";
 highchartsMap(Highcharts);
 const colors = Highcharts.getOptions().colors;
 

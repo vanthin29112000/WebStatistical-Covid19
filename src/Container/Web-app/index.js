@@ -1,8 +1,10 @@
 import React from "react";
 import { Route, Router, Switch } from "react-router";
 import { BrowserRouter } from "react-router-dom";
+import Footer from "../../Component/Footer";
 import "../../Layout/Grid-system/GridSystem.css";
 import NavBar from "../../Layout/Navbar";
+import AboutMe from "../AboutMe";
 import CountryDetail from "../CoutryDetail";
 import HomePage from "../HomePage";
 import ThongDiep5K from "../ThongDiep5K";
@@ -22,7 +24,11 @@ export const WebAPPCovid = () => {
                      component={CountryDetail}
                   ></Route>
                   <Route path="/thong-diep-5k" component={ThongDiep5K}></Route>
+                  <Route path="/Gioi-thieu" component={AboutMe}></Route>
                </Switch>
+            </div>
+            <div className="footer">
+               <Footer></Footer>
             </div>
          </div>
       </BrowserRouter>

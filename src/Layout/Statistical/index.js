@@ -24,7 +24,7 @@ const Statistical = ({ data }) => {
                      %)
                   </p>
                ) : (
-                  <p className="change increase default">
+                  <p className="change decrease default">
                      <i className="fas fa-arrow-right"></i>0%
                   </p>
                )}
@@ -45,7 +45,7 @@ const Statistical = ({ data }) => {
                      %)
                   </p>
                ) : (
-                  <p className="change increase default">
+                  <p className="change decrease default">
                      <i className="fas fa-arrow-right"></i>0%
                   </p>
                )}
@@ -66,7 +66,7 @@ const Statistical = ({ data }) => {
                      %)
                   </p>
                ) : (
-                  <p className="change increase default">
+                  <p className="change decrease default">
                      <i className="fas fa-arrow-right"></i>0%
                   </p>
                )}

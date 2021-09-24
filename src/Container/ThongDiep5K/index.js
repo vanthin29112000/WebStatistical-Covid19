@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Page5k.css";
 const ThongDiep5K = () => {
+   useEffect(() => {
+      window.scrollTo(0, 0);
+   }, []);
+
    return (
       <div className="td-5k">
          <div className="wide grid">
@@ -10,7 +14,7 @@ const ThongDiep5K = () => {
                      <p className="title">
                         CHUNG SỐNG AN TOÀN VỚI ĐẠI DỊCH COVID - 19{" "}
                      </p>
-                     <p className="source">(Theo bộ Y Tế)</p>
+                     <p className="source__td-5k">(Theo bộ Y Tế)</p>
                   </div>
                </div>
                <div className="col l-12 m-12 c-12">
@@ -83,7 +87,9 @@ const ThongDiep5K = () => {
                         <div className="td__info">
                            <p>
                               Thực hiện khai báo y tế trên{" "}
-                              <a href="">App NCOVI</a>
+                              <a href="https://play.google.com/store/apps/details?id=com.vnptit.innovation.ncovi&hl=en&gl=US">
+                                 App NCOVI
+                              </a>
                            </p>
                            <p>
                               Khi có dấu hiệu SỐT, HO, KHÓ THỞ gọi dường dây

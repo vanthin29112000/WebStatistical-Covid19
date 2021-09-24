@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import getCountries from "../../Service/CountriesAPI";
 import "./Navbar.css";
 
 const NavBar = () => {
+   const history = useHistory();
    const [isShowClearInput, setIsShowClearInput] = useState(false);
    const [searchWord, setSearchWord] = useState("");
    const [countries, setCountries] = useState([]);
-   const [pathName, setPathName] = useState("");
-   const history = useHistory();
-
+   const [pathName, setPathName] = useState();
+   let location = useLocation();
    useEffect(() => {
       if (countries.length === 0) {
          getListCountries();
       }
-      setPathName(history.location.pathname);
-   }, [history]);
+
+      setPathName(location.pathname);
+   }, [location]);
 
    const getListCountries = async () => {
       const response = await getCountries();
@@ -94,9 +95,19 @@ const NavBar = () => {
                      )}
                   </Link>
                   <Link to="/thong-diep-5k">
-                     <p>Quy Tắc 5k</p>
+                     {pathName === "/thong-diep-5k" ? (
+                        <p className="active">Thông điệp 5k</p>
+                     ) : (
+                        <p className="">Thông điệp 5k</p>
+                     )}
                   </Link>
-                  <p>Giới Thiệu</p>
+                  <Link to="/Gioi-thieu">
+                     {pathName === "/Gioi-thieu" ? (
+                        <p className="active">Giới Thiệu</p>
+                     ) : (
+                        <p>Giới Thiệu</p>
+                     )}
+                  </Link>
                </div>
             </div>
 
@@ -137,13 +148,27 @@ const NavBar = () => {
                      )}
                   </Link>
                   <Link to="/thong-diep-5k">
-                     <p>
-                        <i className="fas fa-bookmark"></i>Quy Tắc 5k
-                     </p>
+                     {pathName === "/thong-diep-5k" ? (
+                        <p className="active">
+                           <i className="fas fa-bookmark"></i>Quy Tắc 5k
+                        </p>
+                     ) : (
+                        <p>
+                           <i className="fas fa-bookmark"></i>Quy Tắc 5k
+                        </p>
+                     )}
                   </Link>
-                  <p>
-                     <i className="fas fa-address-card"></i>Giới Thiệu
-                  </p>
+                  <Link to="/Gioi-thieu">
+                     {pathName === "/Gioi-thieu" ? (
+                        <p className="active">
+                           <i className="fas fa-address-card"></i>Giới Thiệu
+                        </p>
+                     ) : (
+                        <p>
+                           <i className="fas fa-address-card"></i>Giới Thiệu
+                        </p>
+                     )}
+                  </Link>
                </div>
             </div>
             {/* Search moblie */}

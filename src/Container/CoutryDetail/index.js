@@ -4,16 +4,19 @@ import HightCharts from "../../Layout/HighCharts";
 import HighMap from "../../Layout/HighMap";
 import getCountries from "../../Service/CountriesAPI";
 import getReport from "../../Service/Report";
+import Loading from "../../Layout/Loading";
 
 const CountryDetail = (props) => {
    const [countries, setCountries] = useState([]);
    const [reportAllCountries, setReportAllCountries] = useState([]);
    const [countryId, setCountryId] = useState(props.match.params.countryID);
+   const [isLoading, setIsLoading] = useState(true);
 
    useEffect(() => {
+      window.scrollTo(0, 0);
       onGetCountry();
       onGetReportCountry(countryId);
-   }, [countryId]);
+   }, [countryId, isLoading]);
 
    const onGetCountry = async () => {
       const response = await getCountries();
@@ -23,8 +26,12 @@ const CountryDetail = (props) => {
    const onGetReportCountry = async (countryId) => {
       const reponse = await getReport.byCountryWithDay(countryId);
       setReportAllCountries(reponse.data);
+      setIsLoading(false);
    };
 
+   if (isLoading) {
+      return <Loading></Loading>;
+   }
    return (
       <div className="grid wide">
          <div className="row ">

@@ -1,6 +1,7 @@
 import moment from "moment";
 import React, { useEffect, useState } from "react";
 import HighMap from "../../Layout/HighMap";
+import Loading from "../../Layout/Loading";
 import getReport from "../../Service/Report";
 import "./HomePage.css";
 const HomePage = () => {
@@ -15,11 +16,17 @@ const HomePage = () => {
       [1.5, "#008EBC"],
       [2, "#007092"],
    ]);
+   const [isLoading, setIsLoading] = useState(true);
    const formatter = new Intl.NumberFormat();
 
    useEffect(() => {
-      if (reportCountriesToDay.length === 0) getReportByCountryToday();
-   }, []);
+      window.scrollTo(0, 0);
+      if (reportCountriesToDay.length === 0) {
+         setIsLoading(true);
+         getReportByCountryToday();
+         setIsLoading(false);
+      }
+   }, [isLoading]);
 
    const getReportByCountryToday = async () => {
       const report = await getReport.byCountryToDay();
@@ -71,7 +78,9 @@ const HomePage = () => {
          }
       }
    };
-
+   if (isLoading) {
+      return <Loading></Loading>;
+   }
    return (
       <div className="grid wide">
          <div className="row">
@@ -100,10 +109,11 @@ const HomePage = () => {
                            Bản đồ những ca :
                         </label>
                         <select id="choseHighMap" onChange={onChangeMap}>
-                           <option value="death">Tử vong</option>
                            <option value="case" selected>
                               Nhiễm bệnh
                            </option>
+                           <option value="death">Tử vong</option>
+
                            <option value="recovered">Khỏi bệnh</option>
                         </select>
                      </div>
