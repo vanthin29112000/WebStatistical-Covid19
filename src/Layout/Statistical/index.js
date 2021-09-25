@@ -19,7 +19,9 @@ const Statistical = ({ data }) => {
                      )}
                      (
                      {formatter.format(
-                        (dataToDay.Confirmed - dataTomorrow.Confirmed) / 100
+                        ((dataToDay.Confirmed - dataTomorrow.Confirmed) /
+                           dataToDay.Confirmed) *
+                           100
                      )}
                      %)
                   </p>
@@ -40,7 +42,9 @@ const Statistical = ({ data }) => {
                      <i className="fas fa-arrow-right "></i>
                      {formatter.format(dataToDay.Deaths - dataTomorrow.Deaths)}(
                      {formatter.format(
-                        (dataToDay.Deaths - dataTomorrow.Deaths) / 100
+                        ((dataToDay.Deaths - dataTomorrow.Deaths) /
+                           dataToDay.Deaths) *
+                           100
                      )}
                      %)
                   </p>
@@ -61,7 +65,9 @@ const Statistical = ({ data }) => {
                      <i className="fas fa-arrow-right "></i>
                      {formatter.format(dataToDay.Deaths - dataTomorrow.Deaths)}(
                      {formatter.format(
-                        (dataToDay.Deaths - dataTomorrow.Deaths) / 100
+                        ((dataToDay.Deaths - dataTomorrow.Deaths) /
+                           dataToDay.Deaths) *
+                           100
                      )}
                      %)
                   </p>
