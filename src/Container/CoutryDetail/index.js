@@ -26,9 +26,14 @@ const CountryDetail = (props) => {
    };
 
    const onGetReportCountry = async (countryId) => {
-      const reponse = await getReport.byCountryWithDay(countryId);
-      setReportAllCountries(reponse.data);
-      setIsLoading(false);
+      try {
+         const reponse = await getReport.byCountryWithDay(countryId);
+         setReportAllCountries(reponse.data);
+         setIsLoading(false);
+      } catch (error) {
+         console.log(error);
+         setIsLoading(false);
+      }
    };
 
    if (isLoading) {
